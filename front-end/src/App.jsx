@@ -3,6 +3,9 @@ import { useState } from 'react'
 import './App.css'
 import Header from './Componets/Header/Header'
 import CarouselEffect from './Componets/Carousel/Carousel'
+import Category from './Componets/Category/Category'
+
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,6 +14,7 @@ function App() {
     <>
    <Header/>
    <CarouselEffect/>
+ <Category/>
     </>
   )
 }
