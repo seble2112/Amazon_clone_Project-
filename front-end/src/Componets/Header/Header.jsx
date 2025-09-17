@@ -5,8 +5,15 @@ import LowerHeader from "./LowerHeader";
 import { BsSearch } from "react-icons/bs";
 import { BiCart } from "react-icons/bi";
 import { Link } from "react-router-dom";
-
+import { DataContext } from "../DataProvider/DataProvider";
+import { useContext } from "react";
 const Header = () => {
+     const [{ user, basket }, dispatch] = useContext(DataContext);
+     const totalItem = basket?.reduce((amount, item) => {
+       return item.amount + amount;
+     }, 0);
+
+
   return (
     <>
       <section>
@@ -70,7 +77,7 @@ const Header = () => {
             {/* cart  */}
             <Link to ="/Cart" className={classes.cart}>
               <BiCart size={35} />
-              <span> 0</span>
+              <span>{basket.length}</span>
             </Link>
           </div>
         </div>
