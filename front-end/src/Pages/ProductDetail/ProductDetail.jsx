@@ -22,14 +22,22 @@ const ProductDetail = () => {
         setisLoading(false)
       });
   }, [productId]);
-
+ 
   return (
     <LayOut>
-       {isLoading? (<Loader/>) : (
-      <ProductCard product={product} />
-      )};
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <ProductCard
+          product={product}
+          flex={true}
+          renderDesc={true}
+          renderAdd={true}
+        />
+      )}
+      ;
     </LayOut>
-  )};
+  );};
 
 
 export default ProductDetail;
