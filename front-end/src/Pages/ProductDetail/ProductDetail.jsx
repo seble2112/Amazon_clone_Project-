@@ -7,6 +7,7 @@ import ProductCard from "../../Componets/Product/ProductCard";
 
 const ProductDetail = () => {
   const [product, setProduct] = useState({});
+  const [isLoading, setisLoading] = useState(false); 
   const { productId } = useParams();
 
   useEffect(() => {
@@ -14,17 +15,21 @@ const ProductDetail = () => {
       .get(`${productUrl}/products/${productId}`)
       .then((res) => {
         setProduct(res.data);
+        setisLoading(false)
       })
       .catch((err) => {
         console.log(err);
+        setisLoading(false)
       });
   }, [productId]);
 
   return (
     <LayOut>
+       {isLoading? (<Loader/>) : (
       <ProductCard product={product} />
+      )};
     </LayOut>
-  );
-};
+  )};
+
 
 export default ProductDetail;
