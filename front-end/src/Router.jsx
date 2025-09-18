@@ -1,14 +1,13 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Landing from "./Pages/Landing/Landing";
-import SignUp from "./Pages/Auth/SignUp"; // ✅ fixed
+import SignUp from "./Pages/Auth/SignUp";
 import Payment from "./Pages/Payment/Payment";
 import Cart from "./Pages/Cart/Cart";
 import Orders from "./Pages/Orders/Orders";
 import Results from "./Pages/Results/Results";
-import Product from "./Componets/Product/Product";
-import ProductDetail
- from "./Pages/ProductDetail/ProductDetail";
+import ProductDetail from "./Pages/ProductDetail/ProductDetail";
+
 const Routing = () => {
   return (
     <Routes>
