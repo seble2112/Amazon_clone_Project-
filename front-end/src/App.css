@@ -2,8 +2,8 @@
 
 :root {
   --primary-color: #febd69;
-  --primary-shade: #e74c3c;
---remove-color: #d9534f;     
+  --primary-shade: #febd69;
+--remove-color: #febd69;     
   --header-font: "montserrat";
   --body-text-font: "Poppins";
 }
