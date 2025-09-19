@@ -14,6 +14,7 @@ const Results = () => {
   const { categoryName } = useParams();
 
   useEffect(() => {
+    
     const fetchResults = async () => {
       setIsLoading(true);
       setError(null);

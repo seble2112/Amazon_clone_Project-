@@ -1,57 +1,64 @@
-import React from "react";
-import classes from "./Header.module.css";
-import { CiLocationOn } from "react-icons/ci";
-import LowerHeader from "./LowerHeader";
-import { BsSearch } from "react-icons/bs";
-import { BiCart } from "react-icons/bi";
-import { Link } from "react-router-dom";
-import { DataContext } from "../DataProvider/DataProvider";
 import { useContext } from "react";
+import styles from "./header.module.css";
+import { Link } from "react-router-dom";
+import { SlLocationPin } from "react-icons/sl";
+import { BsSearch } from "react-icons/bs";
+import amazon_logo from "../../assets/amazon-icon.png";
+import { BiCart } from "react-icons/bi";
+import { DataContext } from "../DataProvider/DataProvider";
+import { Type } from "../../Utility/action.type";
+import LowerHeader from "./LowerHeader";
 const Header = () => {
-     const [{ user, basket }, dispatch] = useContext(DataContext);
-     const totalItem = basket?.reduce((amount, item) => {
-       return item.amount + amount;
-     }, 0);
+  const [{ user, basket }, dispatch] = useContext(DataContext);
 
+  const totalItem = basket?.reduce((amount, item) => {
+    return item.amount + amount;
+  }, 0);
+
+  //handle sign out and clear cart at the same time when the user clicks signout button
+  const handleSignOutAndClearCart = () => {
+    if (user) {
+      dispatch({ type: Type.EMPTY_BASKET }); // to clear the cart
+      auth.signOut(); // Sign the user out
+    }
+  };
 
   return (
-    <section className={classes.fixed}>
+    <section className={styles.fixed}>
       <section>
-        <div className={classes.header__container}>
-          {/* logo */}
-          <div className={classes.logo__container}>
+        <div className={styles.header__container}>
+          {/* logo section */}
+          <div className={styles.logo__container}>
             <Link to="/">
-              <img
-                src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
-                alt="Amazon Logo"
-              />
+              <img src={amazon_logo} alt="amazon logo" />
             </Link>
-            <div className={classes.delivery}>
-              {/* delivery */}
+            <div className={styles.delivery}>
               <span>
-                {/* icon */}
-                <CiLocationOn />
+                <SlLocationPin />
               </span>
               <div>
-                <p>delivered to</p>
-                <span> Ethiopia</span>
+                <p>Deliver to</p>
+                <span>Ethiopia</span>
               </div>
             </div>
           </div>
-          {/* search bar */}
-
-          <div className={classes.search}>
+          {/* search section */}
+          <div className={styles.search}>
             <select name="" id="">
               <option value="">All</option>
+              <option value="">Art and crafts</option>
+              <option value="">Automotive</option>
+              <option value="">Books</option>
+              <option value="">Electronics</option>
+              <option value="">Software</option>
+              <option value="">Baby</option>
             </select>
-            <input type="text" placeholder="Search Amazon.nl" />
-            <BsSearch size={25} />
-            {/* icon */}
+            <input type="text" />
+            <BsSearch size={42} />
           </div>
-          {/* right side sections */}
-
-          <div className={classes.order__container}>
-            <a href="" className={classes.language}>
+          {/* other section */}
+          <div className={styles.order__container}>
+            <Link to="/" className={styles.language}>
               <img
                 src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1024px-Flag_of_the_United_States.svg.png"
                 alt=""
@@ -60,24 +67,30 @@ const Header = () => {
               <select name="" id="">
                 <option value="">EN</option>
               </select>
-            </a>
-
-            {/* three components  */}
-            <Link to="/auth">
+            </Link>
+            <Link to={!user && "/auth"}>
+              {/* <Link to={!user && "/auth/signIn"}> */}
               <div>
-                <p>Hello,Sign In</p>
-                <span>Account and lists</span>
+                {user ? (
+                  <>
+                    <p>Hello {user?.email?.split("@")[0]}</p>
+                    <span onClick={handleSignOutAndClearCart}>Sign Out</span>
+                  </>
+                ) : (
+                  <>
+                    <p>Hello, Sign In</p>
+                    <span>Account & Lists</span>
+                  </>
+                )}
               </div>
             </Link>
-            {/* orders  */}
-            <Link  to ="/orders">
+            <Link to="/orders">
               <p>returns</p>
-              <span>& orders</span>
+              <span>& Orders</span>
             </Link>
-            {/* cart  */}
-            <Link to ="/Cart" className={classes.cart}>
+            <Link to="/cart" className={styles.cart}>
               <BiCart size={35} />
-              <span>{basket.length}</span>
+              <span>{totalItem}</span>
             </Link>
           </div>
         </div>
