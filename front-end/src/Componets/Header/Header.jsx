@@ -8,18 +8,19 @@ import { BiCart } from "react-icons/bi";
 import { DataContext } from "../DataProvider/DataProvider";
 import { Type } from "../../Utility/action.type";
 import LowerHeader from "./LowerHeader";
+import { auth } from "../../Utility/Firebase"; // ✅ fixed import
+
 const Header = () => {
   const [{ user, basket }, dispatch] = useContext(DataContext);
 
   const totalItem = basket?.reduce((amount, item) => {
-    return item.amount + amount;
+    return (item.amount || 0) + amount;
   }, 0);
 
-  //handle sign out and clear cart at the same time when the user clicks signout button
   const handleSignOutAndClearCart = () => {
     if (user) {
-      dispatch({ type: Type.EMPTY_BASKET }); // to clear the cart
-      auth.signOut(); // Sign the user out
+      dispatch({ type: Type.EMPTY_BASKET });
+      auth.signOut();
     }
   };
 
@@ -27,10 +28,10 @@ const Header = () => {
     <section className={styles.fixed}>
       <section>
         <div className={styles.header__container}>
-          {/* logo section */}
+          {/* logo */}
           <div className={styles.logo__container}>
             <Link to="/">
-              <img src={amazon_logo} alt="amazon logo" />
+              <img src={amazon_logo} alt="Amazon Logo" />
             </Link>
             <div className={styles.delivery}>
               <span>
@@ -42,34 +43,42 @@ const Header = () => {
               </div>
             </div>
           </div>
-          {/* search section */}
+
+          {/* search */}
           <div className={styles.search}>
-            <select name="" id="">
+            <select name="category" id="category">
               <option value="">All</option>
-              <option value="">Art and crafts</option>
-              <option value="">Automotive</option>
-              <option value="">Books</option>
-              <option value="">Electronics</option>
-              <option value="">Software</option>
-              <option value="">Baby</option>
+              <option value="">Fashion</option>
+              <option value="">Health & Wellness</option>
+              <option value="">Home & Garden</option>
+              <option value="">Sports</option>
+              <option value="">Music</option>
+              <option value="">Toys</option>
+              <option value="">Food & Beverages</option>
+              <option value="">Travel</option>
+              <option value="">Education</option>
             </select>
-            <input type="text" />
-            <BsSearch size={42} />
+            <input type="text" placeholder="Search...Amazon.de" />
+            <button type="button" className={styles.searchBtn}>
+              <BsSearch size={35} />
+            </button>
           </div>
-          {/* other section */}
+
+          {/* account, orders, cart */}
           <div className={styles.order__container}>
+            {/* language selector */}
             <Link to="/" className={styles.language}>
               <img
                 src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1024px-Flag_of_the_United_States.svg.png"
-                alt=""
+                alt="US Flag"
               />
-
-              <select name="" id="">
-                <option value="">EN</option>
+              <select name="lang" id="lang">
+                <option value="en">EN</option>
               </select>
             </Link>
-            <Link to={!user && "/auth"}>
-              {/* <Link to={!user && "/auth/signIn"}> */}
+
+            {/* account / sign in / sign out */}
+            <Link to={user ? "#" : "/auth"}>
               <div>
                 {user ? (
                   <>
@@ -84,10 +93,14 @@ const Header = () => {
                 )}
               </div>
             </Link>
+
+            {/* orders */}
             <Link to="/orders">
-              <p>returns</p>
+              <p>Returns</p>
               <span>& Orders</span>
             </Link>
+
+            {/* cart */}
             <Link to="/cart" className={styles.cart}>
               <BiCart size={35} />
               <span>{totalItem}</span>
