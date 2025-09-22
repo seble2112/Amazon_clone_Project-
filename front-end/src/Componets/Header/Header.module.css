@@ -79,7 +79,7 @@
   cursor: pointer;
 }
 .search:focus-within {
-  border: 2px solid rgb(235, 161, 173);
+  border: 3px solid #FF9900;
 }
 .order__container {
   display: flex;

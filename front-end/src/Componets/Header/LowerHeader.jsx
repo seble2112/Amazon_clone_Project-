@@ -11,11 +11,16 @@ function LowerHeader() {
 
           <p>All</p>
         </li>
+        <li>Amazon haul</li>
+        <li>Best Sellers</li>
+        <li>New releases</li>
+        <li>Amazon Basics</li>
         <li>Today's Deal</li>
-        <li>Customer Service</li>
-        <li>Registry</li>
+        <li>Books</li>
+        <li>Shopper Toolkit</li>
+        <li>Fashion</li>
         <li>Gift Cards</li>
-        <li>Sell</li>
+        
       </ul>
     </div>
   );
