@@ -17,23 +17,21 @@ function ProductCard({
   total,
 }) {
   const { image, title, id, rating, price, description } = product;
-
   const [state, dispatch] = useContext(DataContext);
-
-  // console.log(state)
 
   const addToCart = () => {
     dispatch({
       type: Type.ADD_TO_BASKET,
-      item: {
-        image,
-        title,
-        id,
-        rating,
-        price,
-        description,
-      },
+      item: { image, title, id, rating, price, description },
     });
+  };
+
+  const removeOne = () => {
+    dispatch({ type: Type.REMOVE_FROM_BASKET, id });
+  };
+
+  const removeAll = () => {
+    dispatch({ type: Type.REMOVE_ITEM_IMMEDIATELY, id });
   };
 
   return (
@@ -49,11 +47,10 @@ function ProductCard({
         <h3>{title}</h3>
         {renderDesc && <div style={{ maxWidth: "750px" }}>{description}</div>}
         <div className={styles.rating}>
-          {/* rating */}
           <Rating value={rating?.rate} precision={0.1} />
-          {/*count  */}
           <small>{rating?.count}</small>
         </div>
+
         <div
           style={{
             display: "flex",
@@ -61,8 +58,6 @@ function ProductCard({
             alignItems: "center",
           }}
         >
-          {/* <div className={styles.price_border}> */}
-          {/* price */}
           <CurrencyFormat amount={price} />
           {itemAmount && (
             <p style={{ fontWeight: "500", color: "var(--primary-color)" }}>
@@ -75,31 +70,36 @@ function ProductCard({
             </p>
           )}
 
-          {/* </div> */}
           <div>
             {showRemoveItem && (
-              <button
-                className={styles.button}
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "7px",
-                  padding: "5px",
-                }}
-                onClick={() =>
-                  dispatch({ type: Type.REMOVE_ITEM_IMMEDIATELY, id })
-                }
-              >
-                <BsFillCartXFill size={20} />
-                Remove Item
-              </button>
+              <>
+                <button
+                  className={styles.button}
+                  style={{
+                    display: "flex",
+                    gap: "7px",
+                    padding: "5px",
+                    marginBottom: "5px",
+                  }}
+                  onClick={removeOne}
+                >
+                  Remove 1
+                </button>
+                <button
+                  className={styles.button}
+                  style={{ display: "flex", gap: "7px", padding: "5px" }}
+                  onClick={removeAll}
+                >
+                  <BsFillCartXFill size={20} /> Remove All
+                </button>
+              </>
             )}
           </div>
         </div>
+
         {renderAdd && (
           <button className={styles.button} onClick={addToCart}>
-            add to cart
+            Add to Cart
           </button>
         )}
       </div>
