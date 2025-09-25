@@ -8,7 +8,7 @@ import { BiCart } from "react-icons/bi";
 import { DataContext } from "../DataProvider/DataProvider";
 import { Type } from "../../Utility/action.type";
 import LowerHeader from "./LowerHeader";
-import { auth } from "../../Utility/Firebase"; // ✅ fixed import
+import { auth } from "../../Utility/Firebase"; 
 
 const Header = () => {
   const [{ user, basket }, dispatch] = useContext(DataContext);
