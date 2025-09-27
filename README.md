@@ -24,9 +24,10 @@ It replicates core features of a real-world e-commerce platform:
 
               # Completing checkout with payment processing
 
-Emphasizes end-to-end integration, connecting a React frontend with a Node.js/Express backend,
-Firebase authentication, and Stripe payments.
-A perfect demonstration of building functional, deployable web apps.
+Emphasizes end-to-end integration, connecting a 
+     # React frontend with a Node.js/Express 
+     #  backend,Firebase authentication, and Stripe payments.
+     # A perfect demonstration of building functional, deployable web apps.
 
 # ✨_Features
 
@@ -78,7 +79,7 @@ Configure Firebase & Stripe keys in .env files.
 Run locally:
 
 # Backend
-npm run dev
+ npm start || npm run serve
 
 # Frontend
 npm run dev
