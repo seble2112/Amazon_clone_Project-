@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Landing from "./Pages/Landing/Landing";
 import Auth from "./Pages/Auth/Auth";
 import Payment from "./Pages/Payment/Payment";
@@ -10,11 +10,17 @@ import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import ProtectedRoute from "./Componets/ProtectedRoute/ProtectedRoute";
-import Footer from "./Componets/Footer/Footer"; // ✅ keep only one import
+import Footer from "./Componets/Footer/Footer";
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 const Routing = () => {
+  const location = useLocation();
+
+  // Hide footer on these routes
+  const hideFooterOn = ["/auth", "/cart", "/payments", "/orders"];
+  const shouldShowFooter = !hideFooterOn.includes(location.pathname);
+
   return (
     <>
       <Routes>
@@ -48,7 +54,8 @@ const Routing = () => {
         <Route path="/category/:categoryName" element={<Results />} />
         <Route path="/products/:productId" element={<ProductDetail />} />
       </Routes>
-      <Footer /> {/* ✅ Footer renders after Routes */}
+
+      {shouldShowFooter && <Footer />}
     </>
   );
 };

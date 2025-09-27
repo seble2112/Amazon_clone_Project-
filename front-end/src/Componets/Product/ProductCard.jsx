@@ -26,10 +26,6 @@ function ProductCard({
     });
   };
 
-  const removeOne = () => {
-    dispatch({ type: Type.REMOVE_FROM_BASKET, id });
-  };
-
   const removeAll = () => {
     dispatch({ type: Type.REMOVE_ITEM_IMMEDIATELY, id });
   };
@@ -72,27 +68,13 @@ function ProductCard({
 
           <div>
             {showRemoveItem && (
-              <>
-                <button
-                  className={styles.button}
-                  style={{
-                    display: "flex",
-                    gap: "7px",
-                    padding: "5px",
-                    marginBottom: "5px",
-                  }}
-                  onClick={removeOne}
-                >
-                  Remove 1
-                </button>
-                <button
-                  className={styles.button}
-                  style={{ display: "flex", gap: "7px", padding: "5px" }}
-                  onClick={removeAll}
-                >
-                  <BsFillCartXFill size={20} /> Remove All
-                </button>
-              </>
+              <button
+                className={styles.button}
+                style={{ display: "flex", gap: "7px", padding: "5px" }}
+                onClick={removeAll}
+              >
+                <BsFillCartXFill size={20} /> Remove All
+              </button>
             )}
           </div>
         </div>
