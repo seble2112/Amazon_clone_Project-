@@ -36,7 +36,7 @@
 .delivery p {
   font-size: 10px;
 }
-.delivery span{
+.delivery span {
   font-size: 14px;
 }
 .search {
@@ -61,14 +61,12 @@
 }
 .search select {
   border: none;
-  
 }
 
 .search input {
   border: 1px solid white;
   width: 100%;
   margin-right: -2px;
-  /* border: none; */
 }
 .search svg {
   padding: 10px;
@@ -80,7 +78,7 @@
   cursor: pointer;
 }
 .search:focus-within {
-  border: 3px solid #FF9900;
+  border: 3px solid #ff9900;
 }
 .order__container {
   display: flex;
@@ -125,7 +123,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid yellow; */
   left: 14px;
   color: orange;
 }
@@ -171,5 +168,39 @@
   }
   .language {
     display: none;
+  }
+}
+
+/* ✅ Responsive dropdown for LowerHeader */
+.menu__items {
+  display: flex;
+  gap: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .menu__items {
+    display: none;
+    flex-direction: column;
+    background-color: #232f3e;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    z-index: 200;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .menu__items li {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+  }
+
+  .menu__items li:last-child {
+    border-bottom: none;
+  }
+
+  .menu__items.menu__open {
+    display: flex;
   }
 }
