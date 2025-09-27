@@ -5,27 +5,30 @@ integrating front-end and back-end technologies. Build real-world apps with auth
 
 # 🌐_Live_Demos:
 
-# Frontend: 🛒 temesgen-amazon-clone.netlify.app
+# Frontend: 🛒 https://temesgen-amazon-clone.netlify.app/
 
-# Backend: ⚡ amazon-backend-deployment.vercel.app
+# Backend: ⚡ https://amazon-backend-deployment.vercel.app/
 
-👤 Author: Temesgen Abdissa
+# 👤_Author: Temesgen Abdissa
 
-#📖_Project_Description
+# 📖_Project_Description
 
-This Amazon clone is a fullstack e-commerce application designed for learning and experimentation. It replicates core features of a real-world e-commerce platform:
+This Amazon clone is a fullstack e-commerce application designed for learning and experimentation. 
+It replicates core features of a real-world e-commerce platform:
 
-Browsing products
+             # Browsing products
 
-Adding items to a cart
+              # Adding items to a cart
 
-Registering and logging in
+              # Registering and logging in
 
-Completing checkout with payment processing
+              # Completing checkout with payment processing
 
-Emphasizes end-to-end integration, connecting a React frontend with a Node.js/Express backend, Firebase authentication, and Stripe payments. A perfect demonstration of building functional, deployable web apps.
+Emphasizes end-to-end integration, connecting a React frontend with a Node.js/Express backend,
+Firebase authentication, and Stripe payments.
+A perfect demonstration of building functional, deployable web apps.
 
-✨ Features
+# ✨_Features
 
 🛍 Product Catalog: List products dynamically and view product details.
 
@@ -47,30 +50,14 @@ Emphasizes end-to-end integration, connecting a React frontend with a Node.js/Ex
 
 # Deployment: Frontend on Netlify, Backend on Vercel
 
-📚 Topics Covered
-
-Fullstack web development with React and Node.js
-
-Building a RESTful API with Express
-
-User authentication & session management using Firebase
-
-Integrating payment gateways with Stripe
-
-Handling responsive layouts and modern CSS (Tailwind)
-
-Deploying fullstack applications to Netlify & Vercel
-
-Working with real-world project structure & file organization
-
-🗂 Project Structure
+# 🗂_Project Structure
 amazon-clone/
 ├── backend/            # Node.js + Express API
 ├── frontend/           # React + css frontend
 ├── README.md
 
 
-#⚡Getting Started
+#_Getting Started
 
 Clone the repo:
 
