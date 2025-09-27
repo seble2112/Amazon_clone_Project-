@@ -262,20 +262,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="service-column">
-            <div className="service-item">
-              <h4>Veeqo</h4>
-              <p>Shipping Software Inventory Management</p>
-            </div>
-            <div className="service-item">
-              <h4>IMDb</h4>
-              <p>Movies, TV & Celebrities</p>
-            </div>
-            <div className="service-item">
-              <h4>Ring</h4>
-              <p>Smart Home Security Systems</p>
-            </div>
-          </div>
+         
         </div>
       </div>
 
