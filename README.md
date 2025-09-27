@@ -24,10 +24,10 @@ It replicates core features of a real-world e-commerce platform:
 
               # Completing checkout with payment processing
 
-Emphasizes end-to-end integration, connecting a 
-     # React frontend with a Node.js/Express 
-     #  backend,Firebase authentication, and Stripe payments.
-     # A perfect demonstration of building functional, deployable web apps.
+        Emphasizes end-to-end integration, connecting a 
+             # React frontend with a Node.js/Express 
+              # backend,Firebase authentication, and Stripe payments.
+                # A perfect demonstration of building functional, deployable web apps.
 
 # ✨_Features
 
@@ -52,10 +52,11 @@ Emphasizes end-to-end integration, connecting a
 # Deployment: Frontend on Netlify, Backend on Vercel
 
 # 🗂_Project Structure
-amazon-clone/
-├── backend/            # Node.js + Express API
-├── frontend/           # React + css frontend
-├── README.md
+
+    # amazon-clone/
+    # ├── backend/            # Node.js + Express API
+    # ├── frontend/           # React + css frontend
+    # ├── README.md
 
 
 #_Getting Started
