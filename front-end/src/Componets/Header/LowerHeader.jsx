@@ -24,8 +24,7 @@ function LowerHeader() {
         <div
           className={`${classes.menu__items} ${open ? classes.menu__open : ""}`}
         >
-          <li onClick={goHome}>Amazon haul</li>
-          <li onClick={goHome}>Best Sellers</li>
+        
           <li onClick={goHome}>New releases</li>
           <li onClick={goHome}>Amazon Basics</li>
           <li onClick={goHome}>Today's Deal</li>

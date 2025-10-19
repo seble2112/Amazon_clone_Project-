@@ -10,7 +10,7 @@ import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import ProtectedRoute from "./Componets/ProtectedRoute/ProtectedRoute";
-import Footer from "./Componets/Footer/Footer";
+
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
@@ -55,7 +55,7 @@ const Routing = () => {
         <Route path="/products/:productId" element={<ProductDetail />} />
       </Routes>
 
-      {shouldShowFooter && <Footer />}
+      {shouldShowFooter}
     </>
   );
 };
