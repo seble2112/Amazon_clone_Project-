@@ -5,11 +5,11 @@ integrating front-end and back-end technologies. Build real-world apps with auth
 
 # 🌐_Live_Demos:
 
-# Frontend: 🛒 https://temesgen-amazon-clone.netlify.app/
+# Frontend: 🛒 https://https://seble-amazon-clone.netlify.app/
 
 # Backend: ⚡ https://amazon-backend-deployment.vercel.app/
 
-# 👤_Author: Temesgen Abdissa
+# 👤_Author: Seble 
 
 # 📖_Project_Description
 
@@ -57,32 +57,5 @@ It replicates core features of a real-world e-commerce platform:
     # ├── backend/            # Node.js + Express API
     # ├── frontend/           # React + css frontend
     # ├── README.md
-
-
-#_Getting Started
-
-Clone the repo:
-
-git clone <your-repo-link>
-
-
-Install dependencies:
-
-cd frontend
-npm install
-
-cd ../backend
-npm install
-
-
-Configure Firebase & Stripe keys in .env files.
-
-Run locally:
-
-# Backend
- npm start || npm run serve
-
-# Frontend
-npm run dev
 
 
